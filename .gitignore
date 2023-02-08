@@ -1,0 +1,5 @@
+website/__pycache__
+__pycache__
+.env
+website/site.db
+instance

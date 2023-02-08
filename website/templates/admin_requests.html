@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- flash -->
+    {%with messages = get_flashed_messages()%}
+    {%if messages%}
+    <ul class=flashes>
+        {%for message in messages%}
+        <li>{{message}}</li>
+        {%endfor%}
+    </ul>
+    {%endif%}
+    {%endwith%}
+    <style>
+        .flashes {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            color: red;
+        }
+    </style>
+    <!-- list all the admin requests -->
+    <h1>Admin requests</h1>
+    <a href="{{url_for('developer_interface')}}">developer_dashboard</a>
+
+    <table id="requests">
+        <tr>
+            <th>id</th>
+            <th>user_id</th>
+            <th>Message</th>
+            <th> </th>
+        </tr>
+        {%for request in requests%}
+        <tr>
+            <td>{{request.id}}</td>
+            <td>{{request.user_id}}</td>
+            <td>{{request.message}}</td>
+            <td><a href="/make_mod/{{request.user_id}}">Make mod</a></td>
+        </tr>
+        {%endfor%}
+    </table>
+    <style>
+#requests {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#requests td, #requests th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#requests tr:nth-child(even){background-color: #f2f2f2;}
+
+#requests tr:hover {background-color: #ddd;}
+
+#requests th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</body>
+</html>

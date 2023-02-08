@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{%block title%} Homepage {%endblock%}
+{%block css%}website/static/style.css{%endblock%}
+{%block scripthead%}
+{%endblock%}
+{%block contents%}
+<br>
+<br>
+<br>
+<br>
+<br>
+<form action="" method="post" style="width: 50%;">
+    {{form.hidden_tag()}}
+
+    <div class="form-group">
+        {{form.user(class_="form-control")}}
+    </div>
+    <div class="text-center">
+        {{form.submit(class_="btn btn-primary align-center")}}
+    </div>
+</form>
+
+{%endblock%}
+{%block script%}
+{%endblock%}
